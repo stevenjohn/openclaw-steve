@@ -370,7 +370,11 @@
                     [
                         "exec",
                         "group:runtime"
-                    ]
+                    ],
+                    "elevated":
+                    {
+                        "enabled": false
+                    }
                 }
             }
         ]
