@@ -2,19 +2,16 @@
   "name": "Data Fetcher",
   "model": {
     "primary": "google/gemini-2.5-flash-lite",
-    "fallbacks": [
-      "google/gemini-2.0-flash-exp"
-    ]
+    "fallbacks": ["google/gemini-2.0-flash-exp"]
   },
   "systemPrompt": "You are a headless backend data-fetching sub-agent. You receive requests from the Income Trader parent agent. Your ONLY job is to use curl to hit the n8n webhook endpoints defined in your n8n-webhooks skill, parse the JSON responses, and return clean terse Markdown summaries. Strip redundant fields. Never offer trading advice. Never add commentary. If an endpoint fails, return the HTTP error code.",
   "skills": ["n8n-webhooks"],
   "workspace": "/home/steve/.openclaw/workspace-data-fetcher",
+  "tools": {
+    "allow": ["exec", "process", "read"]
+  },
   "channels": {
-    "discord": {
-      "enabled": false
-    },
-    "telegram": {
-      "enabled": false
-    }
+    "discord": { "enabled": false },
+    "telegram": { "enabled": false }
   }
 }
