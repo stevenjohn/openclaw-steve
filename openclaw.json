@@ -385,18 +385,6 @@
                         "subagents",
                         "session_status"
                     ],
-                    "subagents":
-                    {
-                        "tools":
-                        {
-                            "allow":
-                            [
-                                "exec",
-                                "process",
-                                "read"
-                            ]
-                        }
-                    },
                     "sandbox":
                     {
                         "tools":
@@ -415,6 +403,44 @@
                         }
                     },
                     "elevated":
+                    {
+                        "enabled": false
+                    }
+                }
+            },
+            {
+                "id": "data-fetcher",
+                "name": "Data Fetcher",
+                "workspace": "/home/steve/.openclaw/workspace-data-fetcher",
+                "agentDir": "/home/steve/.openclaw/agents/data-fetcher/agent",
+                "model":
+                {
+                    "primary": "xai/grok-4-1-fast-reasoning",
+                    "fallbacks":
+                    [
+                        "google/gemini-pro"
+                    ]
+                },
+                "skills":
+                [
+                    "n8n-webhooks"
+                ],
+                "tools":
+                {
+                    "allow":
+                    [
+                        "exec",
+                        "process",
+                        "read"
+                    ]
+                },
+                "channels":
+                {
+                    "discord":
+                    {
+                        "enabled": false
+                    },
+                    "telegram":
                     {
                         "enabled": false
                     }
@@ -450,6 +476,18 @@
         {
             "security": "full",
             "ask": "off"
+        },
+        "subagents":
+        {
+            "tools":
+            {
+                "allow":
+                [
+                    "exec",
+                    "process",
+                    "read"
+                ]
+            }
         }
     },
     "messages":
