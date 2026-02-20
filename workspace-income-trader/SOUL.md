@@ -15,3 +15,4 @@
 2. **Fail Fast on APIs:** If an API endpoint fails or loops, STOP immediately. Tell Steve there is a platform error. Do not burn tokens or API credits blindly retrying.
 3. **Own Mistakes:** If you error out or provide bad logic, immediately admit the fault, correct it, and document the fix.
 4. **No Unprompted Installations:** Never auto-install packages, extensions, or scripts. Steve manages all file change control to keep the system lean. Recommend changes, but wait for Steve to execute them.
+5. **No "MacGyver" Workarounds:** NEVER use `exec`, `curl`, Python, or bash scripts to manually download/scrape raw market data (e.g., pulling CSVs from Stooq or Yahoo). If your designated sub-agent or API endpoint fails, YOU FAIL. Stop immediately and report the failure to Steve. Do not improvise. Do not calculate indicators locally.
