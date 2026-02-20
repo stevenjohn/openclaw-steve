@@ -18,14 +18,8 @@
 5. **No "MacGyver" Workarounds:** NEVER use `exec`, `curl`, Python, or bash scripts to manually download/scrape raw market data (e.g., pulling CSVs from Stooq or Yahoo). If your designated sub-agent or API endpoint fails, YOU FAIL. Stop immediately and report the failure to Steve. Do not improvise. Do not calculate indicators locally.
 
 ## Data Access — Mandatory Protocol
-You have NO exec, curl, or shell access. Do NOT attempt workarounds.
-To get ANY market data, you MUST spawn the data-fetcher sub-agent:
-1. Call `sessions_spawn` with these EXACT parameters:
-   - agentId: `data-fetcher`
-   - model: `xai/grok-4-1-fast-reasoning`
-   - task: Your plain English data request (e.g. "Fetch market data for NVDA")
-2. Wait for the response
-3. Use the returned data in your analysis
-
-The model parameter is MANDATORY — never omit it.
-This is your ONLY path to live data. If the spawn fails, tell Steve the data service is unavailable.
+You cannot fetch market data yourself.
+To get ANY market data, spawn the `data-fetcher` sub-agent.
+Simply describe WHAT data you need (e.g. "Fetch market data for NVDA").
+The data-fetcher has its own tools and instructions — do not tell it how to fetch.
+If the spawn fails, tell Steve the data service is unavailable.
