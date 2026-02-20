@@ -33,62 +33,81 @@
     "mode": "merge",
     "providers": {
       "google": {
-        "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-        "api": "google-generative-ai",
-        "models": [
-          {
-            "id": "gemini-2.0-flash-exp",
-            "name": "Gemini 2.0 Flash (Experimental)",
-            "reasoning": false,
-            "input": [
-              "text",
-              "image"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 1048576,
-            "maxTokens": 8192
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "api": "google-generative-ai",
+      "models": [
+        {
+          "id": "gemini-3-pro-preview",
+          "name": "Gemini 3 Pro (Preview)",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "cost": {
+            "input": 2.0,
+            "output": 12.0,
+            "cacheRead": 0.2,
+            "cacheWrite": 0
           },
-          {
-            "id": "gemini-2.0-flash-thinking-exp",
-            "name": "Gemini 2.0 Flash Thinking (Experimental)",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 1048576,
-            "maxTokens": 8192
+          "contextWindow": 1048576,
+          "maxTokens": 65536
+        },
+        {
+          "id": "gemini-3-flash-preview",
+          "name": "Gemini 3 Flash (Preview)",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "cost": {
+            "input": 0.5,
+            "output": 2.0,
+            "cacheRead": 0.05,
+            "cacheWrite": 0
           },
-          {
-            "id": "gemini-pro",
-            "name": "Gemini Pro",
-            "reasoning": false,
-            "input": [
-              "text",
-              "image"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 1048576,
-            "maxTokens": 8192
-          }
-        ]
-      },
+          "contextWindow": 1048576,
+          "maxTokens": 65536
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "cost": {
+            "input": 0.15,
+            "output": 0.60,
+            "cacheRead": 0.0375,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": 65536
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash Lite",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "cost": {
+            "input": 0.075,
+            "output": 0.30,
+            "cacheRead": 0.01875,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": 65536
+        },
+        {
+          "id": "gemini-2.0-flash-exp",
+          "name": "Gemini 2.0 Flash (Experimental)",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": 8192
+        }
+      ]
+    },
       "xai": {
         "baseUrl": "https://api.x.ai/v1",
         "api": "openai-completions",
@@ -167,12 +186,13 @@
   },
   "agents": {
     "defaults": {
-      "model": {
-        "primary": "google/gemini-pro",
+      ""model": {
+        "primary": "google/gemini-3-pro-preview",
         "fallbacks": [
+          "google/gemini-3-flash-preview",
           "anthropic/claude-sonnet-4-6",
           "xai/grok-4-1-fast-reasoning",
-          "google/gemini-2.0-flash-exp",
+          "google/gemini-2.5-flash",
           "openai/gpt-5.2-pro"
         ]
       },
@@ -200,9 +220,16 @@
         "google/gemini-2.0-flash-thinking-exp": {
           "alias": "gemini-think"
         },
-        "google/gemini-pro": {
+        "google/gemini-3-pro-preview": {
           "alias": "gemini"
         },
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-flash"
+        },
+        "google/gemini-2.5-flash": {
+          "alias": "gemini-cheap"
+        },
+        "google/gemini-2.0-flash-exp": {},
         "xai/grok-4-1-fast": {},
         "xai/grok-4-fast-non-reasoning": {},
         "xai/grok-4-fast": {},
@@ -242,17 +269,18 @@
         "id": "main"
       },
       {
-        "id": "income-trader",
-        "name": "income-trader",
-        "workspace": "/home/steve/.openclaw/workspace-income-trader",
-        "agentDir": "/home/steve/.openclaw/agents/income-trader/agent",
-        "model": {
-          "primary": "google/gemini-pro",
-          "fallbacks": [
-            "xai/grok-4-1-fast-reasoning"
-          ]
-        }
+      "id": "income-trader",
+      "name": "income-trader",
+      "workspace": "/home/steve/.openclaw/workspace-income-trader",
+      "agentDir": "/home/steve/.openclaw/agents/income-trader/agent",
+      "model": {
+        "primary": "google/gemini-3-pro-preview",
+        "fallbacks": [
+          "google/gemini-3-flash-preview",
+          "xai/grok-4-1-fast-reasoning"
+        ]
       }
+    }
     ]
   },
   "tools": {
