@@ -348,7 +348,7 @@
             },
             {
                 "id": "income-trader",
-                "name": "income-trader",
+                "name": "Income Trader",
                 "workspace": "/home/steve/.openclaw/workspace-income-trader",
                 "agentDir": "/home/steve/.openclaw/agents/income-trader/agent",
                 "model":
@@ -366,11 +366,10 @@
                 ],
                 "tools":
                 {
-                    "exec": false
-                },
-                "commands":
-                {
-                    "native": "off"
+                    "exec":
+                    {
+                        "security": "none"
+                    }
                 }
             }
         ]
