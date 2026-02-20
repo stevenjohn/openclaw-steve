@@ -19,6 +19,7 @@ workspace/.pi/
 *.bak
 *.bak.*
 .env
+.DS_Store
 
 # Agent credential stores (auto-generated, never track)
 agents/*/agent/auth.json
