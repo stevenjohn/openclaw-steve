@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.17",
-    "lastTouchedAt": "2026-02-19T13:43:57.624Z"
+    "lastTouchedAt": "2026-02-20T04:57:57.076Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-18T12:48:02.606Z",
@@ -184,7 +184,6 @@
           }
         },
         "anthropic/claude-sonnet-4-6": {
-          "alias": "sonnet",
           "params": {
             "cacheRetention": "short"
           }
@@ -203,11 +202,6 @@
         },
         "google/gemini-pro": {
           "alias": "gemini"
-        },
-        "anthropic/claude-sonnet-4-6": {
-          "params": {
-            "cacheRetention": "short"
-          }
         },
         "xai/grok-4-1-fast": {},
         "xai/grok-4-fast-non-reasoning": {},
@@ -242,7 +236,18 @@
       "subagents": {
         "maxConcurrent": 8
       }
-    }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "income-trader",
+        "name": "income-trader",
+        "workspace": "/home/steve/.openclaw/workspace-income-trader",
+        "agentDir": "/home/steve/.openclaw/agents/income-trader/agent"
+      }
+    ]
   },
   "tools": {
     "media": {
