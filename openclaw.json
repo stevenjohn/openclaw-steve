@@ -433,17 +433,6 @@
                         "process",
                         "read"
                     ]
-                },
-                "channels":
-                {
-                    "discord":
-                    {
-                        "enabled": false
-                    },
-                    "telegram":
-                    {
-                        "enabled": false
-                    }
                 }
             }
         ]
