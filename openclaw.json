@@ -366,19 +366,31 @@
                 ],
                 "tools":
                 {
-                    "deny":
+                    "allow":
                     [
-                        "exec",
-                        "group:runtime"
+                        "read",
+                        "image",
+                        "sessions_list",
+                        "sessions_history",
+                        "sessions_send",
+                        "sessions_spawn",
+                        "subagents",
+                        "session_status"
                     ],
                     "sandbox":
                     {
                         "tools":
                         {
-                            "deny":
+                            "allow":
                             [
-                                "exec",
-                                "group:runtime"
+                                "read",
+                                "image",
+                                "sessions_list",
+                                "sessions_history",
+                                "sessions_send",
+                                "sessions_spawn",
+                                "subagents",
+                                "session_status"
                             ]
                         }
                     },
@@ -390,6 +402,17 @@
             }
         ]
     },
+    "bindings":
+    [
+        {
+            "agentId": "income-trader",
+            "match":
+            {
+                "provider": "discord",
+                "accountId": "income-trader"
+            }
+        }
+    ],
     "tools":
     {
         "media":
