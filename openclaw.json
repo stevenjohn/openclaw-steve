@@ -364,6 +364,13 @@
                 [
                     "market-data"
                 ],
+                "subagents":
+                {
+                    "allow":
+                    [
+                        "data-fetcher"
+                    ]
+                },
                 "tools":
                 {
                     "allow":
