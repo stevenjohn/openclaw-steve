@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.17",
-    "lastTouchedAt": "2026-02-20T04:57:57.076Z"
+    "lastTouchedAt": "2026-02-20T05:38:55.324Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-18T12:48:02.606Z",
@@ -309,6 +309,13 @@
       ],
       "dm": {
         "enabled": true
+      },
+      "accounts": {
+        "income-trader": {
+          "enabled": true,
+          "token": "${DISCORD_BOT_TOKEN_INCOME_TRADER}",
+          "groupPolicy": "allowlist"
+        }
       }
     }
   },
