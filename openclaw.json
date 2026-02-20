@@ -369,7 +369,8 @@
                     "allowAgents":
                     [
                         "data-fetcher"
-                    ]
+                    ],
+                    "model": "xai/grok-4-1-fast-reasoning"
                 },
                 "tools":
                 {
@@ -384,6 +385,18 @@
                         "subagents",
                         "session_status"
                     ],
+                    "subagents":
+                    {
+                        "tools":
+                        {
+                            "allow":
+                            [
+                                "exec",
+                                "process",
+                                "read"
+                            ]
+                        }
+                    },
                     "sandbox":
                     {
                         "tools":
