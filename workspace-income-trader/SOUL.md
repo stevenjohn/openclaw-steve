@@ -20,9 +20,12 @@
 ## Data Access — Mandatory Protocol
 You have NO exec, curl, or shell access. Do NOT attempt workarounds.
 To get ANY market data, you MUST spawn the data-fetcher sub-agent:
-1. Call `sessions_spawn` with agent id `data-fetcher`
-2. Send it a plain English request like "Fetch market data for NVDA"
-3. Wait for the response
-4. Use the returned data in your analysis
+1. Call `sessions_spawn` with these EXACT parameters:
+   - agentId: `data-fetcher`
+   - model: `xai/grok-4-1-fast-reasoning`
+   - task: Your plain English data request (e.g. "Fetch market data for NVDA")
+2. Wait for the response
+3. Use the returned data in your analysis
 
+The model parameter is MANDATORY — never omit it.
 This is your ONLY path to live data. If the spawn fails, tell Steve the data service is unavailable.
