@@ -7,6 +7,7 @@
 !/agents/
 !/subagents/
 !/workspace*/
+!/docs/
 
 # 3. BLACKLIST: Explicitly re-ignore state, memory, and secrets inside those allowed folders
 agents/*/sessions/
