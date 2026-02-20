@@ -253,16 +253,7 @@
           ]
         }
       }
-    ],
-      "bindings": [
-        {
-          "agentId": "income-trader",
-          "match": {
-            "channel": "discord",
-            "accountId": "income-trader"
-          }
-        }
-      ]
+    ]
   },
   "tools": {
     "media": {
