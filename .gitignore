@@ -6,16 +6,16 @@
 !/openclaw.json
 !/agents/
 !/subagents/
-!/workspace/
+!/workspace*/
 
 # 3. BLACKLIST: Explicitly re-ignore state, memory, and secrets inside those allowed folders
 agents/*/sessions/
 agents/*/memory/
 subagents/*/sessions/
 subagents/*/memory/
-workspace/memory/
-workspace/things_*.csv
-workspace/.pi/
+workspace*/memory/
+workspace*/things_*.csv
+workspace*/.pi/
 *.bak
 *.bak.*
 .env
