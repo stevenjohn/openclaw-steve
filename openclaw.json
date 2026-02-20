@@ -366,10 +366,11 @@
                 ],
                 "tools":
                 {
-                    "exec":
-                    {
-                        "security": "deny"
-                    }
+                    "deny":
+                    [
+                        "exec",
+                        "group:runtime"
+                    ]
                 }
             }
         ]
