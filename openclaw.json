@@ -371,6 +371,17 @@
                         "exec",
                         "group:runtime"
                     ],
+                    "sandbox":
+                    {
+                        "tools":
+                        {
+                            "deny":
+                            [
+                                "exec",
+                                "group:runtime"
+                            ]
+                        }
+                    },
                     "elevated":
                     {
                         "enabled": false
