@@ -370,7 +370,7 @@
                     [
                         "data-fetcher"
                     ],
-                    "model": "xai/grok-4-1-fast-reasoning"
+                    "model": "google/gemini-2.5-flash-lite"
                 },
                 "tools":
                 {
@@ -413,12 +413,13 @@
                 "name": "Data Fetcher",
                 "workspace": "/home/steve/.openclaw/workspace-data-fetcher",
                 "agentDir": "/home/steve/.openclaw/agents/data-fetcher/agent",
+                "systemPrompt": "You are a headless data-fetching sub-agent. Your ONLY job is to read your n8n-webhooks skill file and use exec to run curl commands against those endpoints. On EVERY task, your first action MUST be: read skills/n8n-webhooks/SKILL.md. Then construct the curl command using the endpoint URLs and auth headers from that file. Return terse Markdown summaries. Never scrape websites. Never install packages. Never use yfinance, Yahoo, Google Finance, or any public website.",
                 "model":
                 {
-                    "primary": "xai/grok-4-1-fast-reasoning",
+                    "primary": "google/gemini-2.5-flash-lite",
                     "fallbacks":
                     [
-                        "google/gemini-pro"
+                        "google/gemini-2.5-flash"
                     ]
                 },
                 "skills":
