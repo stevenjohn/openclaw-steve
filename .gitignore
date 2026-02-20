@@ -1,0 +1,25 @@
+# 1. Ignore EVERYTHING in the root directory by default
+/*
+
+# 2. WHITELIST: Explicitly allow the configuration folders
+!/.gitignore
+!/openclaw.json
+!/agents/
+!/subagents/
+!/workspace/
+
+# 3. BLACKLIST: Explicitly re-ignore state, memory, and secrets inside those allowed folders
+agents/*/sessions/
+agents/*/memory/
+subagents/*/sessions/
+subagents/*/memory/
+workspace/memory/
+workspace/things_*.csv
+workspace/.pi/
+*.bak
+*.bak.*
+.env
+
+# Agent credential stores (auto-generated, never track)
+agents/*/agent/auth.json
+agents/*/agent/auth-profiles.json

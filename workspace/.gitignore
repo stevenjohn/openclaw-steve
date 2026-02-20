@@ -1,0 +1,16 @@
+# Secrets and sensitive data
+.env
+*.key
+*.pem
+
+# ClawHub and OpenClaw internals
+.clawhub/
+.openclaw/
+
+# Memory files (too noisy for version control, keep local only)
+memory/
+MEMORY.md
+
+# Temp files
+*.tmp
+*.log
