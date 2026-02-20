@@ -279,7 +279,13 @@
           "google/gemini-3-flash-preview",
           "xai/grok-4-1-fast-reasoning"
         ]
-      }
+      },
+      "skills": ["market-data"],
+        "tools": {
+          "exec": {
+            "enabled": false
+          }
+        }
     }
     ]
   },
