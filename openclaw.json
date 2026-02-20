@@ -245,9 +245,24 @@
         "id": "income-trader",
         "name": "income-trader",
         "workspace": "/home/steve/.openclaw/workspace-income-trader",
-        "agentDir": "/home/steve/.openclaw/agents/income-trader/agent"
+        "agentDir": "/home/steve/.openclaw/agents/income-trader/agent",
+        "model": {
+          "primary": "google/gemini-pro",
+          "fallbacks": [
+            "xai/grok-4-1-fast-reasoning"
+          ]
+        }
       }
-    ]
+    ],
+      "bindings": [
+        {
+          "agentId": "income-trader",
+          "match": {
+            "channel": "discord",
+            "accountId": "income-trader"
+          }
+        }
+      ]
   },
   "tools": {
     "media": {
@@ -314,7 +329,13 @@
         "income-trader": {
           "enabled": true,
           "token": "${DISCORD_BOT_TOKEN_INCOME_TRADER}",
-          "groupPolicy": "allowlist"
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "395896147123765248"
+          ],
+          "dm": {
+            "enabled": true
+          }
         }
       }
     }
