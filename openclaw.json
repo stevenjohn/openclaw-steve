@@ -366,7 +366,7 @@
                 ],
                 "subagents":
                 {
-                    "allow":
+                    "allowAgents":
                     [
                         "data-fetcher"
                     ]
