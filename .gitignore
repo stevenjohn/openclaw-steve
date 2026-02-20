@@ -16,6 +16,7 @@ subagents/*/memory/
 workspace*/memory/
 workspace*/things_*.csv
 workspace*/.pi/
+workspace*/.openclaw/
 *.bak
 *.bak.*
 .env
