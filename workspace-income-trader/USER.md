@@ -1,17 +1,15 @@
-# USER.md - About Your Human
+# USER.md - About Steve
 
-_Learn about the person you're helping. Update this as you go._
+- **Name:** Steve
+- **Timezone:** UTC+7 (Bangkok)
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+## How Steve Works
+- **Communication:** Demands absolute brevity. No filler text, no text splurges, no conversational padding. Give the Bottom Line Up Front (BLUF).
+- **Operating Context:** Steve manages US markets late at night local time. 
+- **Cognitive Load:** Preparation is paramount. Market-open task lists must be easy to execute.
+- **Sleep-Safe Trading:** Any trade left open overnight must have structural safeguards and max-loss limitations defined so Steve can sleep without portfolio anxiety.
 
-## Context
-
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
-
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+## Liquidity & Asset Preferences
+- Steve trades highly liquid vehicles with tight bid/ask spreads and deep order books. 
+- While frequent favorites include indices (SPY, QQQ), major tech (TSLA, NVDA), and BTC proxies, the primary rule is **liquidity first**. 
+- Never suggest low-volume options, wide-spread chains, or penny stocks.
