@@ -408,7 +408,7 @@
             "agentId": "income-trader",
             "match":
             {
-                "provider": "discord",
+                "channel": "discord",
                 "accountId": "income-trader"
             }
         }
