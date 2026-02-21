@@ -313,9 +313,16 @@
                     "memory",
                     "sessions"
                 ],
+                "provider": "gemini",
+                "model": "gemini-embedding-001",
                 "experimental":
                 {
                     "sessionMemory": true
+                },
+                "cache":
+                {
+                    "enabled": true,
+                    "maxEntries": 50000
                 }
             },
             "contextPruning":
@@ -433,6 +440,14 @@
                         "process",
                         "read"
                     ]
+                },
+                "heartbeat":
+                {
+                    "enabled": false
+                },
+                "memorySearch":
+                {
+                    "enabled": false
                 }
             }
         ]
@@ -555,6 +570,44 @@
                         "enabled": true
                     }
                 }
+            }
+        }
+    },
+    "memory":
+    {
+        "backend": "qmd",
+        "citations": "auto",
+        "qmd":
+        {
+            "includeDefaultMemory": true,
+            "update":
+            {
+                "interval": "5m",
+                "debounceMs": 15000
+            },
+            "limits":
+            {
+                "maxResults": 8,
+                "timeoutMs": 5000
+            },
+            "scope":
+            {
+                "default": "deny",
+                "rules":
+                [
+                    {
+                        "action": "allow",
+                        "match":
+                        {
+                            "chatType": "direct"
+                        }
+                    }
+                ]
+            },
+            "sessions":
+            {
+                "enabled": true,
+                "retentionDays": 90
             }
         }
     },

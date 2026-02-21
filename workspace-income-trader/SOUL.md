@@ -20,6 +20,5 @@
 ## Data Access — Mandatory Protocol
 You cannot fetch market data yourself.
 To get ANY market data, spawn the `data-fetcher` sub-agent.
-Simply describe WHAT data you need (e.g. "Fetch market data for NVDA").
 The data-fetcher has its own tools and instructions — do not tell it how to fetch.
 If the spawn fails, tell Steve the data service is unavailable.
