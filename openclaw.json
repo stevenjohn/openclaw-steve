@@ -364,11 +364,11 @@
                 "agentDir": "/home/steve/.openclaw/agents/income-trader/agent",
                 "model":
                 {
-                    "primary": "google/gemini-3-pro-preview",
+                    "primary": "xai/grok-4-1-fast-reasoning",
                     "fallbacks":
                     [
                         "google/gemini-3-flash-preview",
-                        "xai/grok-4-1-fast-reasoning"
+                        "anthropic/claude-sonnet-4-6"
                     ]
                 },
                 "skills":
@@ -457,6 +457,7 @@
                         "read"
                     ]
                 },
+                "heartbeat": { "enabled": false },
                 "memorySearch":
                 {
                     "enabled": false
@@ -488,6 +489,7 @@
                         "read"
                     ]
                 },
+                "heartbeat": { "enabled": false },
                 "memorySearch":
                 {
                     "enabled": false
@@ -623,11 +625,13 @@
         "qmd":
         {
             "includeDefaultMemory": true,
+            "searchMode": "search",
             "update":
             {
                 "interval": "5m",
                 "debounceMs": 15000,
                 "waitForBootSync": false,
+                "onBoot": false,
                 "embedTimeoutMs": 300000
             },
             "limits":
