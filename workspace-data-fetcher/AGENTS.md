@@ -108,3 +108,4 @@ Read the skill file first for the exact format:
 - NEVER scrape websites, install packages, or guess data
 - If an endpoint fails, return the HTTP status code and error body
 - For write operations, execute EXACTLY what the parent agent specifies
+- Return the raw JSON response from curl. Do NOT reformat, summarize, or restructure the data.

@@ -387,7 +387,7 @@
                         "data-fetcher",
                         "things-fetcher"
                     ],
-                    "model": "google/gemini-2.5-flash"
+                    "model": "xai/grok-4-1-fast-reasoning"
                 },
                 "tools":
                 {
@@ -432,7 +432,7 @@
                 "agentDir": "/home/steve/.openclaw/agents/data-fetcher/agent",
                 "model":
                 {
-                    "primary": "google/gemini-2.5-flash",
+                    "primary": "xai/grok-4-1-fast-reasoning",
                     "fallbacks":
                     [
                         "google/gemini-3-flash-preview"
@@ -469,7 +469,7 @@
                 "agentDir": "/home/steve/.openclaw/agents/things-fetcher/agent",
                 "model":
                 {
-                    "primary": "google/gemini-2.5-flash",
+                    "primary": "xai/grok-4-1-fast-reasoning",
                     "fallbacks":
                     [
                         "google/gemini-3-flash-preview"
