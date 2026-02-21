@@ -518,7 +518,6 @@
     {
         "whatsapp":
         {
-            "enabled": false,
             "dmPolicy": "allowlist",
             "selfChatMode": true,
             "allowFrom":
