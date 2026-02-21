@@ -292,6 +292,10 @@
                 {
                     "alias": "gemini-cheap"
                 },
+                "google/gemini-2.5-flash-lite":
+                {
+                    "alias": "gemini-lite"
+                },
                 "google/gemini-2.0-flash-exp":
                 {},
                 "xai/grok-4-1-fast":
