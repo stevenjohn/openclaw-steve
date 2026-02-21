@@ -369,13 +369,13 @@
                 },
                 "skills":
                 [
-                    "market-data"
+                    "market-data", "things"
                 ],
                 "subagents":
                 {
                     "allowAgents":
                     [
-                        "data-fetcher"
+                        "data-fetcher", "things-fetcher"
                     ],
                     "model": "google/gemini-2.5-flash-lite"
                 },
@@ -431,6 +431,37 @@
                 "skills":
                 [
                     "n8n-webhooks"
+                ],
+                "tools":
+                {
+                    "allow":
+                    [
+                        "exec",
+                        "process",
+                        "read"
+                    ]
+                },
+                "memorySearch":
+                {
+                    "enabled": false
+                }
+            },
+            {
+                "id": "things-fetcher",
+                "name": "Things Fetcher",
+                "workspace": "/home/steve/.openclaw/workspace-things-fetcher",
+                "agentDir": "/home/steve/.openclaw/agents/things-fetcher/agent",
+                "model":
+                {
+                    "primary": "google/gemini-2.5-flash-lite",
+                    "fallbacks":
+                    [
+                        "google/gemini-2.5-flash"
+                    ]
+                },
+                "skills":
+                [
+                    "things-api"
                 ],
                 "tools":
                 {
