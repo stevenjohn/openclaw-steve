@@ -387,7 +387,7 @@
                         "data-fetcher",
                         "things-fetcher"
                     ],
-                    "model": "google/gemini-2.5-flash-lite"
+                    "model": "google/gemini-2.5-flash"
                 },
                 "tools":
                 {
@@ -432,10 +432,10 @@
                 "agentDir": "/home/steve/.openclaw/agents/data-fetcher/agent",
                 "model":
                 {
-                    "primary": "google/gemini-2.5-flash-lite",
+                    "primary": "google/gemini-2.5-flash",
                     "fallbacks":
                     [
-                        "google/gemini-2.5-flash"
+                        "google/gemini-3-flash-preview"
                     ]
                 },
                 "skills":
@@ -469,10 +469,10 @@
                 "agentDir": "/home/steve/.openclaw/agents/things-fetcher/agent",
                 "model":
                 {
-                    "primary": "google/gemini-2.5-flash-lite",
+                    "primary": "google/gemini-2.5-flash",
                     "fallbacks":
                     [
-                        "google/gemini-2.5-flash"
+                        "google/gemini-3-flash-preview"
                     ]
                 },
                 "skills":
