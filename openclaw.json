@@ -518,6 +518,7 @@
     {
         "whatsapp":
         {
+            "enabled": false,
             "dmPolicy": "allowlist",
             "selfChatMode": true,
             "allowFrom":
@@ -530,7 +531,7 @@
         },
         "telegram":
         {
-            "enabled": true,
+            "enabled": false,
             "dmPolicy": "pairing",
             "botToken": "${TELEGRAM_BOT_TOKEN}",
             "groupPolicy": "allowlist",
