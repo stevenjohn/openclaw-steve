@@ -441,10 +441,6 @@
                         "read"
                     ]
                 },
-                "heartbeat":
-                {
-                    "every": false
-                },
                 "memorySearch":
                 {
                     "enabled": false
