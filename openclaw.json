@@ -369,13 +369,19 @@
                 },
                 "skills":
                 [
-                    "market-data", "things"
+                    "options-income",
+                    "data-access",
+                    "trade-ops",
+                    "workflow-shortcuts",
+                    "trade-assessment-protocol",
+                    "things"
                 ],
                 "subagents":
                 {
                     "allowAgents":
                     [
-                        "data-fetcher", "things-fetcher"
+                        "data-fetcher",
+                        "things-fetcher"
                     ],
                     "model": "google/gemini-2.5-flash-lite"
                 },
@@ -430,7 +436,13 @@
                 },
                 "skills":
                 [
-                    "n8n-webhooks"
+                    "market-data-api",
+                    "portfolio-api",
+                    "options-api",
+                    "crypto-api",
+                    "journal-api",
+                    "portfolio-db-api",
+                    "trade-ops-api"
                 ],
                 "tools":
                 {

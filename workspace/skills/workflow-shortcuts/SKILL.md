@@ -1,3 +1,8 @@
+---
+name: workflow-shortcuts
+description: Quick commands for common workflows. /journal, /tv, /grade.
+---
+
 # Workflow Shortcuts
 
 Quick commands for common workflows. Recognize these patterns and execute without asking.
@@ -73,15 +78,6 @@ Rationale: [1-2 sentence why]
 - Actionable and concise
 - Easy to paste into TradingView chart notes
 
-**Example output:**
-```
-RUT 2350/2450 BPS - WAIT
-Entry: Wait for bounce to 2650+ or VIX < 18
-Target: 50% TP, 42 DTE
-Risk: Pullback may not be done, small caps leading weakness
-Plan: Let RUT show support hold at 2600 before entering. Patience > FOMO in Amber zone.
-```
-
 **Respond with:** Code block only (no extra text before/after)
 
 ---
@@ -100,7 +96,7 @@ Plan: Let RUT show support hold at 2600 before entering. Patience > FOMO in Ambe
 **Action:**
 1. Parse: symbol, grade (1-5), optional entry_zone_low/high, optional invalidation_price
 2. Validate: grade 1-5, symbol uppercase
-3. Call instrument-update immediately — no confirmation needed
+3. Instruct data-fetcher to update instrument immediately — no confirmation needed
 4. If grade=1 or 2 AND no entry zone set → note it: "Grade 2 set. No entry zone yet — add one when you know the levels."
 5. If grade=5 → also flag: "Grade 5 — should this be deactivated from watchlist?"
 
@@ -117,8 +113,7 @@ Plan: Let RUT show support hold at 2600 before entering. Patience > FOMO in Ambe
 ```
 Parse multiple symbols in one message and batch-update all.
 
-**When presenting assets for grading**, ALWAYS render a copy-paste list in this format — one per line, colon + space so Steve can fill in inline:
-
+**When presenting assets for grading**, ALWAYS render a copy-paste list in this format:
 ```
 VST: 
 MP: 
@@ -132,13 +127,3 @@ FCX:
 ```
 
 **Respond with:** Confirmation of what was updated, one line per asset. Flag any 1s/2s missing entry zones.
-
----
-
-## Usage Notes
-
-- `/journal` = long-term memory (comprehensive, structured)
-- `/tv` = quick reference (concise, actionable, chart-ready)
-- `/grade` = instant DB update for asset grades and entry zones
-
-All execute automatically when triggered - no confirmation needed.

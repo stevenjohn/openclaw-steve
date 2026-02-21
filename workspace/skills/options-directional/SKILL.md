@@ -3,8 +3,8 @@ name: options-directional
 description: Debit/directional trade validation using CTL methodology. Price action first, context before entry. Load when discussing swing trades, debit spreads, long calls/puts, or technical setups.
 ---
 
-⚠️ **When EVALUATING a trade:** Follow `skills/trade-assessment-protocol.md` first. For data lookups (list positions, check hedges), use data endpoints directly — see `skills/options/SKILL.md`.
-When assessing ANY directional trade: Extract images → Fetch market data → Check journal → THEN evaluate with CTL methodology below.
+⚠️ **When EVALUATING a trade:** Follow `skills/trade-assessment-protocol.md` first (Extract → Fetch → Journal → Evaluate).
+**When just LOOKING UP positions:** Request active debit positions from data-fetcher.
 
 # Options Directional Engine (CTL Methodology)
 

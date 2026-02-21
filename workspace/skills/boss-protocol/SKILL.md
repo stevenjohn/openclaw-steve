@@ -20,13 +20,10 @@ If a rule requires missing data → mark **SKIPPED**.
 ## MAP — Mandatory Analysis Protocol (v2.3)
 
 ### Step 1: Data Validation
-**Required (blocks execution):**
-- `performance.year_to_date`
-- `accounts.balances`
+Request from data-fetcher: YTD performance + account balances.
+These are **required** — block execution if unavailable.
 
-Missing required → STOP, request corrected data.
-
-**Soft fields (never block):** holdings, closed_trades, weekly_analysis, active_options → continue, mark SKIPPED.
+Soft fields (request if relevant, never block): holdings, closed trades, weekly analysis, active options. Mark SKIPPED if unavailable.
 
 ### Step 2: Numeric Audit Block (first, no narrative)
 - Month P&L (USD + %)

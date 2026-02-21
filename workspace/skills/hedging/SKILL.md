@@ -3,8 +3,8 @@ name: hedging
 description: Hedging protocols, coverage targets, and protective strategy rules. Load when discussing portfolio protection, VIX trades, puts, collars, or hedge adequacy.
 ---
 
-⚠️ **When EVALUATING a hedge:** Follow `skills/trade-assessment-protocol.md` first. To just VIEW active hedges, use `GET /webhook/options-active-hedges` (see `skills/options/SKILL.md`).
-When assessing ANY hedge trade or reviewing hedge adequacy: Extract images → Fetch market data → Check journal → THEN evaluate with rules below.
+⚠️ **When EVALUATING a hedge:** Follow `skills/trade-assessment-protocol.md` first.
+To just VIEW active hedges, request active hedge positions from data-fetcher.
 
 # Hedging Engine
 

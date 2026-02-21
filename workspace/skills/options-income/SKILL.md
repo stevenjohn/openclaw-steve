@@ -4,7 +4,7 @@ description: Premium income engine rules. Regime-based structures, Income Factor
 ---
 
 ⚠️ **When EVALUATING a new or existing income trade:** Follow `skills/trade-assessment-protocol.md` first (Extract → Market Data → Journal → Evaluate).
-**When just LOOKING UP positions:** Skip the protocol — use data endpoints directly (see `skills/options/SKILL.md` for active income/debit/hedge endpoints).
+**When just LOOKING UP positions:** Request active income/debit/hedge positions from data-fetcher.
 
 # Options Income Engine
 
@@ -18,6 +18,7 @@ Guardian of the income process. Protect capital first, generate income second.
 ## Income Factory Tiers
 
 ### Macro Gatekeeper (Check REGIME.md First)
+Before any income trade evaluation, request current market regime data (SPY + VIX technicals) from data-fetcher. Determine Zone:
 - **RED**: Tier 2 & 3 BANNED. No new longs. Hedges mandatory.
 - **AMBER**: Block Tier 3. Tier 2 at half size only.
 - **GREEN**: Full permissions.
@@ -33,7 +34,7 @@ Guardian of the income process. Protect capital first, generate income second.
 - Yield Floor: **≥ 25% of spread width** (justifies single-stock gap risk)
 - Entry: **IV Rank > 30** mandatory
 - No earnings in expiry cycle
-- **Technical Gate**: Fetch market data before approval. RSI > 70 AND extended → "Reduce Size by 50%"
+- **Technical Gate**: Request technicals from data-fetcher before approval. RSI > 70 AND extended → "Reduce Size by 50%"
 
 ### Tier 3: Hunter (Screener Plays)
 - Max Risk: **$2,000** ($1,000 if IV > 100%)
@@ -99,7 +100,33 @@ All income trades target **30–45 DTE**. No weeklies.
 - DTE: **30 days**
 - Management: Sell the fear. Focus on names that broke support.
 
-## Trade Response Format (Senior Partner Style)
+## Strike Selection Protocol
+
+Using technical data returned from data-fetcher:
+
+**Put Credit Spreads (Bullish/Neutral):**
+1. Request technicals for underlying from data-fetcher
+2. Identify nearest support from structure data
+3. Place short put AT or BELOW that support level
+4. Validate: price > key MA (21 or 50 depending on regime)
+
+**Call Credit Spreads (Bearish/Neutral):**
+1. Request technicals for underlying from data-fetcher
+2. Identify nearest resistance from structure data
+3. Place short call AT or ABOVE that resistance level
+4. Validate: price < key MA
+
+**Iron Condors (Neutral):**
+1. Request technicals — structure data includes both S/R
+2. Short put below nearest support, short call above nearest resistance
+3. Validate: range-bound (RSI 40-60, price between 21 and 50 SMA)
+
+**Delta Validation:**
+If "safe" level produces Delta outside regime limits:
+- Widen spread (reduce yield, maintain safety), OR
+- Flag as "⚠️ APPROVED WITH CONDITIONS" if TA strongly supports
+
+## Trade Response Format
 
 ### 1. THE VERDICT
 - **✅ APPROVED**: Fits math and strategy

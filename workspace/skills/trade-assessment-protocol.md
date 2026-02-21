@@ -16,12 +16,12 @@ Any time Steve presents a trade for assessment, review, or validation — whethe
 - Hedge adequacy checks
 
 **Does NOT apply to:**
-- **Data lookups** ("show active income trades", "what options do I have?", "list my hedges") — go directly to the relevant data skill endpoint
+- **Data lookups** ("show active income trades", "what options do I have?", "list my hedges") — request directly from data-fetcher
 - Pure portfolio reviews or monthly reviews (Boss Protocol MAP handles those)
 - Quick price checks
 - Account balance / equity queries
 
-**If Steve is asking to SEE positions (not evaluate a trade idea), skip this protocol entirely and use the data skill endpoints.**
+**If Steve is asking to SEE positions (not evaluate a trade idea), skip this protocol entirely and request data from data-fetcher.**
 
 ---
 
@@ -49,39 +49,28 @@ State extracted data explicitly. Do not silently absorb and skip ahead.
 
 ### Step 2: FETCH — Market Data (always)
 
-**One call per underlying ticker.** Cached 18hrs, so this is cheap.
+Request technical analysis for the ticker from data-fetcher. One ticker per request.
 
-```
-POST /webhook/market-data
-{"tool": "get_market_data", "ticker": "SYMBOL"}
-```
+Returns: price, MAs (10/21/50/200 on daily/weekly/monthly), RSI, MACD, S/R levels, structure, candlestick patterns, pivots. Data is cached 18h — request force refresh if needed.
 
-**Index proxies (Polygon doesn't support index tickers):**
-- SPX → use `SPY`
-- RUT → use `IWM`
-- VIX → use Market Context endpoint instead
+**Index proxies:** SPX → request SPY. RUT → request IWM. VIX → request market context instead.
 
-This returns: price, all MAs (10/21/50/200 on daily/weekly/monthly), RSI, MACD, support/resistance levels, structure, candlestick patterns, pivots.
-
-**Also fetch market-context IF:**
+**Also request market context IF:**
 - No regime check in current session yet, OR
 - Session is >1hr old (regime could have shifted)
 
-**Skip market-context IF:** already fetched this session and <1hr ago.
+**Skip market context IF:** already fetched this session and <1hr ago.
 
 ### Step 3: CONTEXT — Journal Check (always)
 
-```
-POST /webhook/get-investment-journal
-{"topic": "SYMBOL"}
-```
+Request journal entries for the ticker from data-fetcher (topic filter).
 
-Surface: prior thesis, active positions, standing orders, analyst views (last 60 days).
+Surfaces: prior thesis, active positions, standing orders, analyst views (last 60 days).
 If nothing returned, note "No recent journal entries" and continue.
 
 ### Step 4: ASSESS — Apply Domain Rules
 
-NOW load and apply the relevant domain skill:
+NOW apply the relevant domain skill:
 - **Income trade** → options-income rules (tier, yield floor, regime gate, structure)
 - **Directional trade** → options-directional rules (CTL sequence, location, trigger)
 - **Hedge** → hedging rules (coverage target, structure preference, cost analysis)
@@ -91,7 +80,7 @@ Combine: extracted image data + fetched technicals + journal context + domain ru
 
 ### Step 5: NEWS (conditional — don't over-fetch)
 
-Fetch news ONLY when:
+Request news for the ticker from data-fetcher ONLY when:
 - Earnings fall within the DTE window
 - Stock moved >3% today (visible from market data)
 - It's a Tier 3 / Hunter play (unknown name, need context)
@@ -102,16 +91,11 @@ Skip news when:
 - Stock is well-known and no earnings imminent
 - Pure roll/management decision on existing position
 
-```
-POST /webhook/market-data
-{"tool": "get_news", "ticker": "SYMBOL"}
-```
-
 ---
 
 ## Cost Budget
 
-A standard assessment = **2 API calls** (market data + journal). That's it.
+A standard assessment = **2 data-fetcher spawns** (market data + journal). That's it.
 Add market-context only at session start. Add news only when warranted.
 This is NOT a bloat problem — it's 2 lightweight cached calls that prevent bad analysis.
 
