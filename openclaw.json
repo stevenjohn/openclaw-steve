@@ -443,7 +443,7 @@
                 },
                 "heartbeat":
                 {
-                    "enabled": false
+                    "every": false
                 },
                 "memorySearch":
                 {
