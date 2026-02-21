@@ -626,7 +626,9 @@
             "update":
             {
                 "interval": "5m",
-                "debounceMs": 15000
+                "debounceMs": 15000,
+                "waitForBootSync": false,
+                "embedTimeoutMs": 300000
             },
             "limits":
             {
